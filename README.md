@@ -24,7 +24,7 @@ Make it the current directory: `cd ~/go/src/poe-indexing-101`
 
 ![Project Directory](https://i.imgur.com/tf173RC.png)
 
-Create a new file named _main.go_ by copying the contents of _examples/poe-indexing-101/main.go_:
+Create a new file named _main.go_ by copying the contents of [examples/poe-indexing-101/main.go](examples/poe-indexing-101/main.go):
 
 ![main.go](https://i.imgur.com/qJb7AoU.png)
 
@@ -54,6 +54,6 @@ func processStash(stash *api.Stash) {
 
 You may want to filter by league, show the account's last character name, parse buyouts, play sounds, compose ready-to-whisper messages, etc.
 
-You can refer to _api/item.go_ and _api/stash.go_ to see what data is available for you to use.
+You can refer to [api/item.go](api/item.go) and [api/stash.go](api/stash.go) to see what data is available for you to use.
 
 And if you're new to Go, you should probably read up a bit on [how to write Go code](https://golang.org/doc/code.html).
