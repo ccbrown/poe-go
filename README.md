@@ -34,7 +34,7 @@ Install dependencies (This will download and install this library.): `go get -v 
 
 Run _main.go_: `go run main.go`
 
-![go run](https://i.imgur.com/s1mDaRY.png)
+![go run](https://i.imgur.com/rXHqln8.png)
 
 Nice! :thumbsup:
 
