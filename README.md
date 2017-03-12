@@ -60,4 +60,4 @@ And if you're new to Go, you should probably read up a bit on [how to write Go c
 
 ## Versioning
 
-There won't be any *major* breaking changes to the library, but stash and item fields may change from time to time. If your build breaks after downloading a new version of this library, don't worry. You probably just need to change some names or make some minor changes that are for the better anyways.
+There won't be any *major* breaking changes to the library, but stash and item fields may change from time to time. It should be extremely infrequent, but if your build breaks after downloading a new version of this library, don't worry; you probably just need to change some names or make some minor changes that are for the better anyways.
