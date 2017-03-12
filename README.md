@@ -52,6 +52,8 @@ func processStash(stash *api.Stash) {
 }
 ```
 
-You may want to filter by league, parse buyouts, play sounds, compose ready-to-whisper messages, etc.
+You may want to filter by league, show the account's last character name, parse buyouts, play sounds, compose ready-to-whisper messages, etc.
+
+You can refer to _api/item.go_ and _api/stash.go_ to see what data is available for you to use.
 
 And if you're new to Go, you should probably read up a bit on [how to write Go code](https://golang.org/doc/code.html).
