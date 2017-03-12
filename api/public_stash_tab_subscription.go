@@ -15,14 +15,21 @@ type PublicStashTabSubscriptionResult struct {
 type PublicStashTabSubscription struct {
 	Channel      chan PublicStashTabSubscriptionResult
 	closeChannel chan bool
+	host         string
 }
 
 // Opens a subscription that begins with the given change id. To subscribe from the beginning, pass
 // an empty string.
 func OpenPublicStashTabSubscription(firstChangeId string) *PublicStashTabSubscription {
+	return OpenPublicStashTabSubscriptionForHost("www.pathofexile.com", firstChangeId)
+}
+
+// Opens a subscription for an alternative host. Can be used for beta or foreign servers.
+func OpenPublicStashTabSubscriptionForHost(host, firstChangeId string) *PublicStashTabSubscription {
 	ret := &PublicStashTabSubscription{
 		Channel:      make(chan PublicStashTabSubscriptionResult),
 		closeChannel: make(chan bool),
+		host:         host,
 	}
 	go ret.run(firstChangeId)
 	return ret
@@ -51,7 +58,7 @@ func (s *PublicStashTabSubscription) run(firstChangeId string) {
 			return
 		default:
 			lastRequestTime = time.Now()
-			response, err := http.Get("https://www.pathofexile.com/api/public-stash-tabs?id=" + url.QueryEscape(nextChangeId))
+			response, err := http.Get("https://" + s.host + "/api/public-stash-tabs?id=" + url.QueryEscape(nextChangeId))
 			if err != nil {
 				s.Channel <- PublicStashTabSubscriptionResult{
 					Error: err,

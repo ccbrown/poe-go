@@ -1,7 +1,7 @@
 package api
 
-type SocketGroup struct {
-	Id        int    `json:"group"`
+type Socket struct {
+	GroupId   int    `json:"group"`
 	Attribute string `json:"attr"`
 }
 
@@ -31,7 +31,7 @@ type Item struct {
 	Icon                string         `json:"icon"`
 	League              string         `json:"league"`
 	Id                  string         `json:"id"`
-	Sockets             []SocketGroup  `json:"sockets"`
+	Sockets             []Socket       `json:"sockets"`
 	Name                string         `json:"name"`
 	Type                string         `json:"typeLine"`
 	IsIdentified        bool           `json:"identified"`

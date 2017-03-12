@@ -57,3 +57,7 @@ You may want to filter by league, show the account's last character name, parse 
 You can refer to [api/item.go](api/item.go) and [api/stash.go](api/stash.go) to see what data is available for you to use.
 
 And if you're new to Go, you should probably read up a bit on [how to write Go code](https://golang.org/doc/code.html).
+
+## Versioning
+
+There won't be any *major* breaking changes to the library, but stash and item fields may change from time to time. If your build breaks after downloading a new version of this library, don't worry. You probably just need to change some names or make some minor changes that are for the better anyways.
