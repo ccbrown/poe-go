@@ -60,4 +60,8 @@ And if you're new to Go, you should probably read up a bit on [how to write Go c
 
 ## Versioning
 
-There won't be any *major* breaking changes to the library, but stash and item fields may change from time to time. It should be extremely infrequent, but if your build breaks after downloading a new version of this library, don't worry; you probably just need to change some names or make some minor changes that are for the better anyways.
+This library is currently unversioned. There will never be any major breaking changes to the library, but stash and item fields may occasionally change to maintain accuracy and compatibility with the PoE API.
+
+## License
+
+This source is released under the MIT license (see the LICENSE file).
