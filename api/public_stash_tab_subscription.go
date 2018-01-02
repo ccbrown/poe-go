@@ -8,6 +8,7 @@ import (
 )
 
 type PublicStashTabSubscriptionResult struct {
+	ChangeId        string
 	PublicStashTabs *PublicStashTabs
 	Error           error
 }
@@ -61,7 +62,8 @@ func (s *PublicStashTabSubscription) run(firstChangeId string) {
 			response, err := http.Get("https://" + s.host + "/api/public-stash-tabs?id=" + url.QueryEscape(nextChangeId))
 			if err != nil {
 				s.Channel <- PublicStashTabSubscriptionResult{
-					Error: err,
+					ChangeId: nextChangeId,
+					Error:    err,
 				}
 				continue
 			}
@@ -71,7 +73,8 @@ func (s *PublicStashTabSubscription) run(firstChangeId string) {
 			err = decoder.Decode(tabs)
 			if err != nil {
 				s.Channel <- PublicStashTabSubscriptionResult{
-					Error: err,
+					ChangeId: nextChangeId,
+					Error:    err,
 				}
 				continue
 			}
@@ -80,6 +83,7 @@ func (s *PublicStashTabSubscription) run(firstChangeId string) {
 
 			if len(tabs.Stashes) > 0 {
 				s.Channel <- PublicStashTabSubscriptionResult{
+					ChangeId:        nextChangeId,
 					PublicStashTabs: tabs,
 				}
 			}
