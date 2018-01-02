@@ -1,8 +1,37 @@
 package api
 
+import (
+	"encoding/json"
+)
+
+// Since Abyss, this is bool (false)
+type SocketAttribute string
+
+func (a *SocketAttribute) UnmarshalJSON(data []byte) error {
+	// Try to unmarshall as bool
+	var boolValue bool
+	err := json.Unmarshal(data, &boolValue)
+	if err == nil {
+		if boolValue {
+			*a = "true"
+		} else {
+			*a = "false"
+		}
+		return nil
+	}
+	// If that fails, try to unmarshall as string
+	var stringValue string
+	err = json.Unmarshal(data, &stringValue)
+	if err != nil {
+		*a = SocketAttribute(stringValue)
+	}
+	return err
+}
+
 type Socket struct {
-	GroupId   int    `json:"group"`
-	Attribute string `json:"attr"`
+	GroupId   int             `json:"group"`
+	Attribute SocketAttribute `json:"attr"`
+	Colour    string          `json:"sColour"`
 }
 
 type ItemProperty struct {
