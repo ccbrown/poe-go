@@ -77,7 +77,7 @@ func (s *PublicStashTabSubscription) run(firstChangeId string) {
 					Error:    err,
 				}
 				continue
-			}			
+			}
 
 			if len(tabs.Stashes) > 0 {
 				s.Channel <- PublicStashTabSubscriptionResult{
@@ -85,7 +85,7 @@ func (s *PublicStashTabSubscription) run(firstChangeId string) {
 					PublicStashTabs: tabs,
 				}
 			}
-			
+
 			nextChangeId = tabs.NextChangeId
 		}
 	}
